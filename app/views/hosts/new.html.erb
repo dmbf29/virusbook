@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Add infected Host</h1>
+  <%= simple_form_for [@virus, @host] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :infected_on %>
+    <%= f.input :image_url %>
+    <%= f.submit 'Submit' class: 'btn btn-warning' %>
+  <% end %>
+
+</div>

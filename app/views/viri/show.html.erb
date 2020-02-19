@@ -1,0 +1,23 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @virus.banner_url %>);">
+  <div class="container">
+    <h1><%= @virus.name %></h1>
+    <%= link_to "Add an infected host", new_virus_host_path(@virus), class: 'btn btn-danger'  %>
+  </div>
+</div>
+<div class="container my-3">
+  <h3>Hosts</h3>
+  <div>
+    <% @virus.hosts.each do |host| %>
+      <div class="card-product my-2">
+        <%= image_tag host.image_url, alt: "alttext" %>
+        <div class="card-product-infos">
+          <h2><%= host.name %></h2>
+          <p>Infected on: <%= host.infected_on %></p>
+          <%= link_to host_path(host), method: :delete, data: { confirm: "Eliminate #{host.name}" }, class: 'card-remove-link' do %>
+            <i class="fas fa-biohazard"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
