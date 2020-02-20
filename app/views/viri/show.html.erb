@@ -13,6 +13,14 @@
         <div class="card-product-infos">
           <h2><%= host.name %></h2>
           <p>Infected on: <%= host.infected_on %></p>
+          <div class="card-symptoms">
+            <% host.symptoms.each do |symptom| %>
+              <span><%= symptom.name %></span>
+            <% end %>
+          </div>
+          <%= link_to new_host_host_symptom_path(host), class: 'card-symptom-link' do %>
+            <i class="fas fa-syringe"></i>
+          <% end %>
           <%= link_to host_path(host), method: :delete, data: { confirm: "Eliminate #{host.name}" }, class: 'card-remove-link' do %>
             <i class="fas fa-biohazard"></i>
           <% end %>

@@ -28,6 +28,7 @@
   margin-top: 8px;
 }
 
+
 .card-product .card-product-infos {
   padding: 16px;
 }
@@ -51,5 +52,43 @@
     color: #FD1115;
     text-decoration: none;
     opacity: 1;
+  }
+}
+
+.card-symptom-link {
+  color: #FD1115;
+  border-radius: 50%;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  opacity: 0.5;
+  transform: rotate(45deg);
+  font-weight: lighter;
+  &:hover {
+    color: #FD1115;
+    text-decoration: none;
+    opacity: 1;
+  }
+}
+
+.card-symptoms {
+  position: absolute;
+  bottom: 8px;
+  left: 136px;
+  width: 80%;
+  span {
+    background: $yellow;
+    font-size: .7em;
+    padding: 2px 4px;
+    border-radius: 3px;
+  }
+  a {
+    color: white;
   }
 }

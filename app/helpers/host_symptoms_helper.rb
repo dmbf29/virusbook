@@ -1,0 +1,2 @@
+module HostSymptomsHelper
+end

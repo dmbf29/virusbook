@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_085840) do
+ActiveRecord::Schema.define(version: 2020_02_20_085001) do
+
+  create_table "host_symptoms", force: :cascade do |t|
+    t.integer "host_id"
+    t.integer "symptom_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["host_id"], name: "index_host_symptoms_on_host_id"
+    t.index ["symptom_id"], name: "index_host_symptoms_on_symptom_id"
+  end
 
   create_table "hosts", force: :cascade do |t|
     t.string "name"
@@ -20,6 +29,12 @@ ActiveRecord::Schema.define(version: 2020_02_19_085840) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["virus_id"], name: "index_hosts_on_virus_id"
+  end
+
+  create_table "symptoms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "viri", force: :cascade do |t|
