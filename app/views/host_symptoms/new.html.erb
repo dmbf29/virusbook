@@ -1,7 +1,10 @@
 <div class="container">
   <h1>Add a Symptom to <%= @host.name %></h1>
   <%= simple_form_for [@host, @host_symptom] do |f| %>
-    <%= f.association :symptom, collection: Symptom.order(:name), input_html: { multiple: true } %>
+    <%= f.association :symptom, collection: Symptom.order(:name) %>
+    <!-- *** -->
+    <!-- If you want to add multiple (also uncomment in controller) -->
+    <%#= f.association :symptom, collection: Symptom.order(:name), input_html: { multiple: true } %>
     <%= f.submit class: 'btn btn-danger' %>
   <% end %>
 

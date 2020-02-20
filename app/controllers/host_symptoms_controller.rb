@@ -7,20 +7,21 @@ class HostSymptomsController < ApplicationController
   end
 
   def create
-    # raise
     @host = Host.find(params[:host_id])
-    # @host_symptom = HostSymptom.new(host_symptom_params)
-    # @host_symptom.host = @host
-    # if @host_symptom.save
-    # else
-    #   render :new
-    # end
-
-    @symptoms = Symptom.where(id: host_symptom_params[:symptom_id])
-    @symptoms.each do |symptom|
-      HostSymptom.create(host: @host, symptom: symptom)
+    @host_symptom = HostSymptom.new(host_symptom_params)
+    @host_symptom.host = @host
+    if @host_symptom.save
+    else
+      render :new
     end
-    redirect_to virus_path(@host.virus)
+
+    # If you want to create multiple... (also uncomment form)
+    # @host = Host.find(params[:host_id])
+    # @symptoms = Symptom.where(id: host_symptom_params[:symptom_id])
+    # @symptoms.each do |symptom|
+    #   HostSymptom.create(host: @host, symptom: symptom)
+    # end
+    # redirect_to virus_path(@host.virus)
   end
 
   private
