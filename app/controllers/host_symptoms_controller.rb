@@ -4,6 +4,7 @@ class HostSymptomsController < ApplicationController
     #  these are for the form
     @host = Host.find(params[:host_id])
     @host_symptom = HostSymptom.new
+    @symptoms = Symptom.where.not(id: @host.symptoms)
   end
 
   def create
